@@ -1,6 +1,6 @@
 // angular
 //     .module('marmiton')
-//         .controller('NewRecipe', ['$scope', 'recipeListFactory', function($scope, recipeListFactory) {
+//         .controller('recipeWindowController', ['$scope', function($scope) {
     	
 	
 // }]);

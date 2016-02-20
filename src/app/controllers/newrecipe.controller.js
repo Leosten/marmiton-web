@@ -6,17 +6,17 @@ angular.module('marmiton').controller('NewRecipe', ['$scope', 'recipeListFactory
         $scope.spice = 'chili';
     };
     
-    $scope.listrecipe = response;
-    // returndb.getRecipeList().then(function(response){
-    //     $scope.calldb = response.data;
-    // },
-    // function (){
-    //     $scope.calldb = "Unable to retrieve data";
-    // }
-    // );
 
-    // returndb = getRecipeNames();
-
+    $http.post(url, data, config)
+   .then(
+       function(response){
+         // success callback
+       }, 
+       function(response){
+         // failure callback
+       }
+    );
+   
     $scope.jalapenoSpicy = function() {
         $scope.spice = 'jalapeño';
     };

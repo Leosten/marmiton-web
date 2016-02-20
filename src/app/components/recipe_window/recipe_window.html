@@ -1,6 +1,16 @@
-<ul class="collapsible popout" data-collapsible="accordion" watch>
-    <li ng-repeat="single in collapsibleElements">
-        <div class="collapsible-header"><i class="{{single.icon}}"></i>{{single.title}}</div>
-        <div class="collapsible-body"><p>{{single.content}}</p></div>
-    </li>
-</ul>
+<div class="row">
+        <div class="col s12 m6">
+          <div class="card medium">
+            <div class="card-image">
+              <img src="images/sample-1.jpg">
+              <span class="card-title"> {{ recipe.img_url }}</span>
+            </div>
+            <div class="card-content">
+              <p>{{ recipe.nom }}</p>
+            </div>
+            <div class="card-action">
+              <a href="#">Découvrez cette recette!</a>
+            </div>
+          </div>
+        </div>
+      </div>

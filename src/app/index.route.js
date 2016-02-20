@@ -19,6 +19,11 @@
         templateUrl: 'app/main/createrecipe.html',
         controller: 'NewRecipe',
       })
+      .state('recipepage', {
+        url: '/recipepage',
+        templateUrl: 'app/main/recipepage.html',
+        controller: 'recipePage',
+      })
       ;
 
     $urlRouterProvider.otherwise('/');

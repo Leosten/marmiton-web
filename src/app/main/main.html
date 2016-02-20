@@ -6,8 +6,7 @@
 
   <div ng-app="marmiton" ng-controller="MainController" class="jumbotron text-center">
 
-  <div ng-repeat="recipe in recipes">{{recipe.nom}}</div>
-
+  <recipe-window ng-repeat="recipe in recipes"></recipe-window>
   <div class="jumbotron text-center">
   <md-content>
     <md-button class="md-raised md-primary">Un bouton</md-button>
