@@ -1,8 +1,9 @@
-angular.module('marmiton').factory('getRecipe', function($http) {
-
-// $http({
-//     url: user.details_path, 
-//     method: "GET",
-//     params: {recipe: recipe_name}
- 
- });
+// angular.module('marmiton').factory('getRecipe', function($http) {
+// return{
+// 	get: $http({
+//     		url: 'http://127.0.0.1/api/listrecipes/getFullRecipe.php',
+//     		method: "GET",
+//     		params: {recipeid: $this.recipeid}
+//     	})
+// };
+// }])

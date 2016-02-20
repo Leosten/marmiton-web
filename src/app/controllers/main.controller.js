@@ -19,7 +19,5 @@
         $scope.error = "unable to obtain API data";
     });
 
-  $scope.select
-
 }]);
 })();

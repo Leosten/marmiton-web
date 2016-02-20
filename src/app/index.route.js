@@ -20,7 +20,7 @@
         controller: 'NewRecipe',
       })
       .state('recipepage', {
-        url: '/recipepage',
+        url: '/recipepage/{recipeid}',
         templateUrl: 'app/main/recipepage.html',
         controller: 'recipePage',
       })
