@@ -1,0 +1,10 @@
+<div class="card-panel purple darken-2">
+          <p ng-repeat="ingredient in ingredients" class="white-text">
+          	<span ng-switch="ingredient.unite">
+          	<span class="small" ng-switch-when="null">- {{ ingredient.quantite }} {{ ingredient.nom }}</span>
+          	<span class="small" ng-if="ingredient.unite">- {{ ingredient.nom }}: {{ ingredient.quantite }} {{ ingredient.unite }}</span>
+          	</span>
+          </p>
+        </div>
+      </div>
+    </div>

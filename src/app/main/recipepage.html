@@ -6,25 +6,49 @@
 <div class="jumbotron text-center">
 	<div ng-controller="recipePage">
 
-		 <ul class="collection with-header">
+		<ul class="collapsible collection with-header">
 
-        <li class="collection-header"><h4>{{ recipe_details.nom }}</h4></li>
+	        <li class="collection-header"><h5>{{ recipe_details.nom }}</h5></li>
 
-        <li class="collection-header"><div>{{ recipe_details.image_url }} IMAGE</div></li>
+	        <li class="collection-header"><div>{{ recipe_details.image_url }} IMAGE</div></li>
+		</ul>
 
-        <li class="collection-item"><div>ingredients directive</div></li>
+	<ingredients-window></ingredients-window>
 
-        <li class="collection-item"><div> <p>Niveau: {{ recipe_details.niveau }}</p></div></li>
+	<ul class="collapsible collection with-header">
 
-        <li class="collection-item">
-        	<p> Preparation :</p>
-        	<div><p>{{ recipe_details.preparation }}</p></div></li>
+	    <li class="collection-item">
+	    	<br />
+	    	<div> 
+	    		<p>
+	    			Niveau: {{ recipe_details.niveau }}
+	    		</p>
+	    	</div>
+	    </li>
 
-        <li ng-if="recipe_details.remarque != null" class="collection-item"><div>{{ recipe_details.remarque }}</div></li>
+	   	<li class="collection-item">
+	       	<br />
+	      	<p> Préparation :</p>
+	       	<div>
+	       		<p>
+	       			{{ recipe_details.preparation }}
+	       		</p>
+	       	</div>
+	       	</li>
 
-        <li class="collection-item"><div>USER COMMENTS DIRECTIVE + own controller</div></li>
+	   	<li ng-if="recipe_details.remarque != null" class="collection-item">
+	   		<br />
+	   		<div> 
+	   			<p>
+	   				Remarque:
+	   			</p>
+	   			<p>
+	   				{{ recipe_details.remarque }}
+	   			</p>
+	   		</div>
+	   	</li>
+	</ul>
 
-      </ul>
 
 	</div>
 </div>

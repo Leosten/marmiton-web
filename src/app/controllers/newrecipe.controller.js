@@ -6,9 +6,9 @@ angular.module('marmiton').controller('NewRecipe', ['$scope', 'recipeListFactory
         $scope.spice = 'chili';
     };
 
-    $scope.recipe = {};
+    $scope.newrecipe = {};
 
-    
+
     
 }]);
 

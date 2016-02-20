@@ -2,23 +2,21 @@
 <div>
     <acme-navbar></acme-navbar>
 </div>
-<div>
-<p>Créez votre propre recette!</p>
-</div>
 
-<div class="jumbotron text-center">
 	<div ng-controller="NewRecipe">
-		<p ng-init="jalapenoSpicy()">{{spice}}</p>
-		{{recipelist}}
+		<div class="jumbotron text-center">
+			<h3>Créez votre propre recette!</h3>
 	  <form novalidate class="simple-form">
-	    Nom de la recette: <input type="text" ng-model="recipe.name" /><br />
-	    Difficulte: <select name="select" ng-model="recipe.level">
-	<option value="value1">facile</option> 
-	  <option value="value2">moyen</option>
-	  <option value="value3">difficile</option>
+	    Nom de la recette: <input type="text" ng-model="newrecipe.name" /><br />
+	    Difficulte: <select name="select" ng-model="newrecipe.level">
+		<option value="value1">facile</option>
+	  	<option value="value2">moyen</option>
+	  	<option value="value3">difficile</option>
 	</select>
 	   Description: <input type="email" ng-model="user.email" /><br />
-
+	     <md-content>
+    <md-button type="submit" ng-click="send(user)" value="Save" class="md-raised md-primary">Créer!</md-button>
+  </md-content>
 	  </form>
-	</div>
+
 </div>
