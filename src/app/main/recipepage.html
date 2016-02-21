@@ -1,54 +1,53 @@
-<div class="container">
-<div>
-    <acme-navbar></acme-navbar>
-</div>
+<acme-navbar></acme-navbar>
 
-<div class="jumbotron text-center">
-	<div ng-controller="recipePage">
+<div class="container">
+	<div class="jumbotron text-center">
+		<div ng-controller="recipePage">
+
+			<ul class="collapsible collection with-header">
+
+		        <li class="collection-header"><h5>{{ recipe_details.nom }}</h5></li>
+
+		        <li class="collection-header"><div>{{ recipe_details.image_url }} IMAGE</div></li>
+			</ul>
+
+		<ingredients-window></ingredients-window>
 
 		<ul class="collapsible collection with-header">
 
-	        <li class="collection-header"><h5>{{ recipe_details.nom }}</h5></li>
+		    <li class="collection-item">
+		    	<br />
+		    	<div> 
+		    		<p>
+		    			Niveau: {{ recipe_details.niveau }}
+		    		</p>
+		    	</div>
+		    </li>
 
-	        <li class="collection-header"><div>{{ recipe_details.image_url }} IMAGE</div></li>
+		   	<li class="collection-item">
+		       	<br />
+		      	<p> Préparation :</p>
+		       	<div>
+		       		<p>
+		       			{{ recipe_details.preparation }}
+		       		</p>
+		       	</div>
+		       	</li>
+
+		   	<li ng-if="recipe_details.remarque != null" class="collection-item">
+		   		<br />
+		   		<div> 
+		   			<p>
+		   				Remarque:
+		   			</p>
+		   			<p>
+		   				{{ recipe_details.remarque }}
+		   			</p>
+		   		</div>
+		   	</li>
 		</ul>
 
-	<ingredients-window></ingredients-window>
 
-	<ul class="collapsible collection with-header">
-
-	    <li class="collection-item">
-	    	<br />
-	    	<div> 
-	    		<p>
-	    			Niveau: {{ recipe_details.niveau }}
-	    		</p>
-	    	</div>
-	    </li>
-
-	   	<li class="collection-item">
-	       	<br />
-	      	<p> Préparation :</p>
-	       	<div>
-	       		<p>
-	       			{{ recipe_details.preparation }}
-	       		</p>
-	       	</div>
-	       	</li>
-
-	   	<li ng-if="recipe_details.remarque != null" class="collection-item">
-	   		<br />
-	   		<div> 
-	   			<p>
-	   				Remarque:
-	   			</p>
-	   			<p>
-	   				{{ recipe_details.remarque }}
-	   			</p>
-	   		</div>
-	   	</li>
-	</ul>
-
-
+		</div>
 	</div>
-</div>
+	</div>

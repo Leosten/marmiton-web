@@ -1,12 +1,11 @@
-<div class="container">
+<acme-navbar></acme-navbar>
 
-  <div>
-    <acme-navbar></acme-navbar>
-  </div>
-  <div ng-app="marmiton" ng-controller="MainController" class="jumbotron text-center">
+<div class="container">
+<div ng-app="marmiton" ng-controller="MainController" class="jumbotron text-center">
     <h4> Bienvenue sur notre marmiton!</h4>
     <h5> Voici les dernières recettes!</h3>
       <br />
   <recipe-window ng-repeat="recipe in recipes"></recipe-window>
   </div>
+</div>
 </div>
