@@ -1,6 +1,30 @@
-<ul class="collapsible collection with-header">
-	<li class="collection-item"><div>USER COMMENTS DIRECTIVE + own controller</div></li>
-	<li class="collection-item"><div>USER COMMENTS DIRECTIVE + own controller</div></li>
-	<li class="collection-item"><div>USER COMMENTS DIRECTIVE + own controller</div></li>
+		<fieldset class="form-group" style="background-color: white">
+		    <p>Commentez cette recette!</p>
+		    <span>Votre pseudonyme</span>
+		    <textarea ng-model="new_pseudo" class="form-control" rows="1"></textarea>
+		    <span class="text-center muted">Votre note</span>
+		    <select class="form-control" ng-model="new_rating" ng-options="num for num in evaluation_list"></select>
+		    <span class="text-center muted">Votre commentaire</span>
+		    <textarea ng-model="new_comment" class="form-control" placeholder="Qu'en avez-vous pensé?" rows="2"></textarea>
+		    <br />
+		    <button ng-click="submitUserComment()" class="btn btn-primary purple">Envoyer</button>
+		    <p class="text-red">{{errorResponse}}</p>
+	  	</fieldset>
+
+<br/>
+<ul ng-repeat="comments in user_comments" class="collapsible collection with-header">
+	<li class="collection-item">
+		<div> 
+			Pseudonyme: {{comments.pseudo}}
+			<br/>
+			Evaluations: {{comments.rating}} étoiles
+			<br/>
+			Commentaire:
+			<br/>
+			<fieldset>
+				{{comments.texte}}
+				<br/>
+			</fieldset>
+		</div>
+	</li>
 </ul>
-	  

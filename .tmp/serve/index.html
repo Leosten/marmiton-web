@@ -21,6 +21,7 @@
     <!-- build:css({.tmp/serve,src}) styles/app.css -->
     <!-- inject:css -->
     <link rel="stylesheet" href="app/index.css">
+    <link rel="stylesheet" href="app/style/marmitonstyle.css">
     <link rel="stylesheet" href="app/components/navbar/navbar.css">
     <!-- endinject -->
     <!-- endbuild -->
@@ -50,6 +51,7 @@
     <script src="../bower_components/moment/moment.js"></script>
     <script src="../bower_components/angular-material/angular-material.js"></script>
     <script src="../bower_components/Materialize/bin/materialize.js"></script>
+    <script src="../bower_components/angular-filter/dist/angular-filter.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -58,14 +60,17 @@
     <script src="app/index.module.js"></script>
     <script src="app/controllers/carousel/carousel.controller.js"></script>
     <script src="app/components/user_comments/user_comments.directive.js"></script>
+    <script src="app/components/user_comments/user_comments.controller.js"></script>
+    <script src="app/components/search_recipe/search_recipe.directive.js"></script>
+    <script src="app/components/search_recipe/search_recipe.controller.js"></script>
     <script src="app/components/recipe_window/recipe_window.directive.js"></script>
-    <script src="app/components/recipe_window/recipe_window.controller.js"></script>
     <script src="app/components/navbar/navbar.directive.js"></script>
+    <script src="app/components/modal/validationmodal.controller.js"></script>
     <script src="app/components/ingredients/ingredients_window.directive.js"></script>
     <script src="app/components/ingredients/ingredients_window.controller.js"></script>
     <script src="app/models/returnlist.js"></script>
+    <script src="app/models/recipepost.js"></script>
     <script src="app/models/getrecipe.js"></script>
-    <script src="app/controllers/search.controller.js"></script>
     <script src="app/controllers/recipepage.controller.js"></script>
     <script src="app/controllers/newrecipe.controller.js"></script>
     <script src="app/controllers/main.controller.js"></script>

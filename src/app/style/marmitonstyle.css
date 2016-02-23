@@ -1,0 +1,17 @@
+.collection {
+	text-align: left;
+}
+
+.bgimg {
+	background: url(../../assets/images/wallmarmiton.png) no-repeat; 
+	background-attachment: fixed;
+	background-position: center;
+}
+
+.myjumbo {
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.recipeimg {
+	text-align: center;
+}

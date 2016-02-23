@@ -1,36 +1,43 @@
 <acme-navbar></acme-navbar>
-
+<div class="bgimg">
 <div class="container">
-	<div class="jumbotron text-center">
+	<div class="jumbotron text-center myjumbo">
 		<div ng-controller="recipePage">
 
 			<ul class="collapsible collection with-header">
 
 		        <li class="collection-header"><h5>{{ recipe_details.nom }}</h5></li>
+		        <li class="collection-header" ng-if="recipe_details.pseudo != null"><span> par {{ recipe_details.pseudo }} </span><li>
 
-		        <li class="collection-header"><div>{{ recipe_details.image_url }} IMAGE</div></li>
+		        <li class="collection-header" ng-if="recipe_details.image_url != null">
+		        	<div class="recipeimg" class="recipeimg">
+		        		<img ng-src="{{recipe_details.image_url}}">
+		        	</div>
+		        </li>
 			</ul>
 
 		<ingredients-window></ingredients-window>
 
 		<ul class="collapsible collection with-header">
 
-		    <li class="collection-item">
-		    	<br />
+		    <li ng-if="recipe.niveau != null" class="collection-item">
 		    	<div> 
-		    		<p>
+		    		<span>
 		    			Niveau: {{ recipe_details.niveau }}
-		    		</p>
+		    		</span>
 		    	</div>
 		    </li>
-
 		   	<li class="collection-item">
 		       	<br />
-		      	<p> Préparation :</p>
+		      	
 		       	<div>
-		       		<p>
+		       		<p> Préparation</p>
+		       		<span style="margin: 3%">
 		       			{{ recipe_details.preparation }}
-		       		</p>
+		       			<br/>
+		       			<br/>
+		       		</span>
+
 		       	</div>
 		       	</li>
 
@@ -40,14 +47,19 @@
 		   			<p>
 		   				Remarque:
 		   			</p>
-		   			<p>
+		   			<span>
 		   				{{ recipe_details.remarque }}
-		   			</p>
+		   			</span>
 		   		</div>
 		   	</li>
 		</ul>
+<br />
 
-
+		<user-comments></user-comments>
+<br />
 		</div>
 	</div>
 	</div>
+</div>
+	<p ng-if="error != null">{{error}}</p>
+</div>

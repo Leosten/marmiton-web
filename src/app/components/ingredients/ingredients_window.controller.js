@@ -4,8 +4,7 @@ angular.module('marmiton').controller('ingredientsWindowController', ['$scope', 
 
 	$http.get(ingredients_url).then(function (response){
 	        $scope.ingredients = response.data;
-	        console.log($scope.ingredients);
 	    }, function() {
-	        console.log("unable to obtain API data: ingredients_window! ;)");
+	        $scope.error("unable to obtain API data: ingredients_window! ;)");
 	    });
 }]);

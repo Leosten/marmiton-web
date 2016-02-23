@@ -1,11 +1,15 @@
 <acme-navbar></acme-navbar>
+<div class="bgimg">
+  <div class="container">
+    <div ng-app="marmiton" ng-controller="MainController" class="jumbotron text-center myjumbo">
 
-<div class="container">
-<div ng-app="marmiton" ng-controller="MainController" class="jumbotron text-center">
-    <h4> Bienvenue sur notre marmiton!</h4>
-    <h5> Voici les dernières recettes!</h3>
+        <search-recipe></search-recipe>
+
+      
       <br />
-  <recipe-window ng-repeat="recipe in recipes"></recipe-window>
-  </div>
+      <div class="row">
+        <recipe-window ng-hide="toFind != null" ng-repeat="recipe in recipes | orderBy: '-ID' | limitTo: 6"></recipe-window>
+      </div>
+   </div>
 </div>
 </div>

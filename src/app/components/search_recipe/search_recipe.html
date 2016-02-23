@@ -1,0 +1,11 @@
+<div>
+	
+	<fieldset style="background-color: white; padding: 2%; border-radius: 3px">
+		<h4> Bienvenue sur notre marmiton!</h4>
+<textarea ng-model="toFind" class="form-control" placeholder="Recherchez parmis nos recettes!" rows="1"></textarea>
+</fieldset>
+</div>
+
+<div ng-show="toFind != null" class="row">
+	<recipe-window ng-repeat="recipe in recipes | filterBy: ['nom']: toFind"></recipe-window>
+</div>

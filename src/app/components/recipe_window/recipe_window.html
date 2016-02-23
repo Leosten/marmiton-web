@@ -1,16 +1,19 @@
-<div class="row">
-        <div class="col s12 m6">
-          <div class="card medium">
+
+        <div class="col s12 m4">
+          <div class="card medium" >
             <div class="card-image">
-              <img src="images/sample-1.jpg">
-              <span class="card-title"> {{ recipe.img_url }}</span>
+              <!-- <img ng-if="recipe.img_url != null" src="{{recipe.img_url}}"> -->
+              <span ng-switch="recipe.image_url">
+              <img ng-if="recipe.image_url != null" ng-src="{{recipe.image_url}}">
+              <img ng-if="recipe.image_url == null || recipe.image_url == ''" ng-src="assets/images/default.jpg">
+            </span>
+              <div class="card-title"></div>
             </div>
-            <div class="card-content">
-              <p>{{ recipe.nom }}</p>
+            <div>
+              <h5>{{ recipe.nom }}</h5>
             </div>
             <div class="card-action">
               <a ui-sref="recipepage({recipeid: recipe.ID})">Découvrez cette recette!</a>
             </div>
           </div>
         </div>
-      </div>

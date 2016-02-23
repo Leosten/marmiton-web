@@ -4,5 +4,6 @@ angular
         restrict: "E",
         scope: false,
         templateUrl: 'app/components/user_comments/user_comments.html',
+        controller: 'userCommentsController',
     };
 });

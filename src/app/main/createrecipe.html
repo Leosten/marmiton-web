@@ -1,77 +1,85 @@
 <acme-navbar></acme-navbar>
-
+<div class="bgimg">
 <div class="container">
 	<div ng-controller="NewRecipe">
-		<div class="jumbotron text-center">
+		<div class="jumbotron text-center myjumbo">
 			<md-content style="padding: 5%">
 			<h3>Créez votre propre recette!</h3>
+
+<!-- Nom -->			
 <form>
   <fieldset class="form-group">
     <p class="text-center">Nom de la recette</p>
-    <input ng-model="recette_name" class="form-control" placeholder="Entrez un nom...">
+    <input ng-model="recipe_name" class="form-control" placeholder="Entrez un nom...">
+    <p class="text-center">Pseudonyme</p>
+    <input ng-model="recipe_pseudo" class="form-control" placeholder="Entrez un pseudo...">
+    <p class="text-center">Email</p>
+    <input ng-model="recipe_mail" class="form-control" placeholder="jeanpaul@gmail.com">
   </fieldset>
 
+<!-- catégorie -->
   <fieldset class="form-group">
     <p class="text-center">Catégorie</p>
-    <select class="form-control" name="recipelevel">
-      <option>plat</option>
-      <option>entrée</option>
-      <option>dessert</option>
-      <option>patisserie</option>
-      <option>autre</option>
+    <select class="form-control" ng-model="categorie" ng-options="catego for catego in category">
     </select>
   </fieldset>
 
+<!-- Difficulte -->
   <fieldset class="form-group">
     <p class="text-center">Difficulté</p>
-    <select class="form-control" name="recipelevel">
-      <option>facile</option>
-      <option>moyen</option>
-      <option>difficile</option>
+    <select class="form-control" ng-model="difficulty" ng-options="choix for choix in level">
     </select>
   </fieldset>
+
+<!-- ingredients -->
     <fieldset>
     	<p> Ajouter des ingrédients</p>
-    	<input ng-model="ingredient_name" class="form-control" id="exampleInputEmail1" placeholder="Nom de l'ingrédient">
-    	<input ng-model="ingredient_quantity" class="form-control" id="exampleInputEmail1" placeholder="Quantité">
-    <select class="form-control" name="ingredients_details">
-      <option>Unité</option>
-      <option></option>
-      <option ng-model="ingredients_unit">g</option>
-      <option ng-model="ingredients_unit">mg</option>
-      <option ng-model="ingredients_unit">l</option>
-      <option>ml</option>
+    	<input ng-model="ingredient_name" class="form-control" placeholder="Nom de l'ingrédient">
+    	<input ng-model="ingredient_quantity" class="form-control" placeholder="Quantité en chiffre">
+    <select class="form-control" ng-model="selectedunit" ng-options="unit for unit in unitlist">
+    	<option value=""></option>
     </select>
     <p ng-if="error != null">{{error}}</p>
 <br />
 
-   	<button ng-click="addIngredient(ingredient_name, ingredient_quantity, ingredients_unit)" class="btn btn-primary blue"> 
-   		Ajouter
-   		<i  class="material-icons small">library_add</i>
-   	</button>
-   	
+<!-- ingredients display -->
     <br />
     <span ng-show="ingredients_list != null">
-	<span ng-repeat="ingredient in ingredients_list">
-		<span ng-switch="ingredient.unite">
-          	<p class="small" ng-switch-when="null">- {{ ingredient.quantite }} {{ ingredient.nom }}</p>
-          	<p class="small" ng-if="ingredient.unite">- {{ ingredient.nom }}: {{ ingredient.quantite }} {{ ingredient.unite }}</p>
-        </span>
-    </span>
-</span> 
+	<div class="collection-item" ng-repeat="newingredient in ingredients_list">
+      <div ng-switch="newingredient.unite" style="color: white">
+          	<span style="float: left; margin: 1%" class="btn btn-primary blue" ng-switch-when="null">
+              {{ newingredient.quantite }} {{ newingredient.nom }}
+              <span style="color: red" ng-click="removeIngredient(newingredient.nom, newingredient.quantite, newingredient.unite)"> X </span>
+            </span>
+          	<span style="float: left; margin: 1%" class="btn btn-primary blue" ng-if="newingredient.unite != null">
+              {{ newingredient.nom }}: {{ newingredient.quantite }} {{ newingredient.unite }}
+              <span style="color: red" ng-click="removeIngredient(newingredient.nom, newingredient.quantite, newingredient.unite)"> X </span>
+           </span>
+    </div>
+	</div>
+</span>
+<br/>
+      <button ng-click="addIngredient()" class="btn btn-primary green"> 
+      Ajouter
+    </button>
+
+    <br />
     </fieldset>
 <br />
+
+<!-- preparation -->
   <fieldset class="form-group">
     <p>Préparation</p>
-    <textarea ng-model="texte_preparation" class="form-control" placeholder="Soyez précis! ..." rows="5"></textarea>
+    <textarea ng-model="preparation" class="form-control" placeholder="Soyez précis! ..." rows="5"></textarea>
   </fieldset>
-  <fieldset class="form-group">
 
+<!-- remarques -->
   <fieldset class="form-group">
     <p>Remarques</p>
-    <textarea ng-model="texte_remarque" class="form-control" rows="3" placeholder="Des idées? Qu'est-ce qui irait le mieux avec ce plat? ..."></textarea>
+    <textarea ng-model="note" class="form-control" rows="3" placeholder="Des idées? Qu'est-ce qui irait le mieux avec ce plat? (Optionnel)"></textarea>
   </fieldset>
 
+<!-- tags -->
    <fieldset class="form-group">
     <p>Tags</p>
     <textarea ng-model="optionaltags" class="form-control" rows="1" placeholder="Optionnel, pour faciliter la recherche..."></textarea>
@@ -80,18 +88,26 @@
   <fieldset class="form-group">
     <p>Photo</p>
     <p class="text-muted">URL</p>
-    <textarea ng-model="image_url" class="form-control" rows="1" placeholder="Optionnel, pour faciliter la recherche..."></textarea>
+    <textarea ng-model="image_url" class="form-control" rows="1" placeholder="Optionnel"></textarea>
     <br />
     <p class="text-muted">Votre photo (non-fonctionnel)</p>
     <input type="file" class="form-control-file" id="exampleInputFile">
   </fieldset>
 
+<!-- SUBMIT -->
 <span>
-	<button type="submit" class="btn btn-primary red">Réinitialiser</button> 
-  	<button type="submit" class="btn btn-primary blue">Créer!</button>
+	<button ng-click="resetAll()" class="btn btn-primary red">Réinitialiser</button> 
+  	<button ng-click="submitRecipe()" class="btn btn-primary green">Créer!</button>
 </span>
-
 </form>
 
+<div> {{jsonreturn}} </div>
+<br />
+<div> {{jsonreturnplus}} </div>
+<br />
+<div> {{jsonreturnplusplus}}</div>
+<br />
+<p> {{error}} </p>
+</div>
 </div>
 </div>
