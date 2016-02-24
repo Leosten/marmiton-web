@@ -24,6 +24,11 @@
         templateUrl: 'app/main/recipepage.html',
         controller: 'recipePage',
       })
+      .state('advancedsearch', {
+        url: '/advancedsearch',
+        templateUrl: 'app/main/advancedsearch.html',
+        controller: 'advancedSearchController',
+      })
       ;
 
     $urlRouterProvider.otherwise('/');

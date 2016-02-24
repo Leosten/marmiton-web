@@ -1,0 +1,25 @@
+<acme-navbar></acme-navbar>
+<div class="bgimg">
+  <div class="container">
+    <div ng-controller="advancedSearchController" class="jumbotron text-center myjumbo">
+
+<div>
+	<fieldset style="background-color: white; padding: 2%; border-radius: 3px">
+	</fieldset>
+</div>
+
+<div>
+	<fieldset style="background-color: white; padding: 2%; border-radius: 3px">
+		<h4> Bienvenue sur notre marmiton!</h4>
+		<textarea ng-model="to_search" class="form-control" placeholder="Recherchez parmis nos recettes!" rows="1"></textarea>
+	</fieldset>
+</div>
+
+      
+      <br />
+      <div class="row">
+        <recipe-window ng-show="to_search != null" ng-repeat="search_results in search_recipes | orderBy:{{toggleOrder}} | limitTo: {{toggleLimit}}"></recipe-window>
+      </div>
+   </div>
+</div>
+</div>
