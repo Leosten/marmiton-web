@@ -1,8 +1,10 @@
 #angularmarmiton
 
+Maquette web sur le modÃ¨le du site Marmiton rÃ©alisÃ© avec AngularJS et l'api en PHP.
+
 #Installation windows:
 
-- télécharger Node.Js;
+- tÃ©lÃ©charger Node.Js;
 - lancer node command prompt
 - taper : 
   - npm install
@@ -11,7 +13,4 @@
   
  #Pour lancer le site en local: 
 - cd angularmarmiton/
-- gulp serve // laisser le terminal pour afficher le site fonctionnel et accéder à localhost:3000
-- 'gulp' crée un build qui fait une version directement fonctionnelle du site, 
-mais à réserver pour la fin car très lourd (attention à ne pas push de dist/ )
-
+- gulp serve // laisser le terminal pour afficher le site fonctionnel et accÃ©der Ã  localhost:3000
