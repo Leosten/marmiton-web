@@ -4,9 +4,7 @@ Maquette web sur le modèle du site Marmiton réalisé avec AngularJS et l'api e
 
 #Installation windows:
 
-- télécharger Node.Js;
-- lancer node command prompt
-- taper : 
+Commandes dans le dossier:
   - npm install
   - npm install -g gulp
   - npm install -g bower
